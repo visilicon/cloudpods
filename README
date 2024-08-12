@@ -1,0 +1,21 @@
+监控：
+私有云宿主机: 通过在宿主机的telegraf采集监控数据。
+私有云虚拟机: 通过在虚拟机里面部署 telegraf 监控 agent 上报数据。
+* 云平台虚拟机: 通过cloudmon服务，周期性地调用各个平台的API，采集监控数据。
+
+cronjob定时执行任务
+从其它系统拉取相关指标写到influxdb里面
+
+主要数据结构文件：
+pkg/apis/compute/zz_generated.model.go：SCloudaccount
+aliyun相关监控示例
+vendor/yunion.io/x/cloudmux/pkg/multicloud/aliyun/monitor.go
+
+
+
+Q: influxdb -> promethus、VictoriaMetrics
+
+
+权限：
+AUTH_SUBJECT_TOKEN_HEADER：X-Subject-Token
+pkg/mcclient/input.go： SAuthenticationInputV3

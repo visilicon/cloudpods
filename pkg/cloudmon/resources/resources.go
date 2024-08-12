@@ -59,6 +59,7 @@ type SBaseResources struct {
 	deletedAt  time.Time
 	updatedAt  time.Time
 
+	// TODO Resources ProviderResources数据层次不同， 参考init函数里面的内容
 	resourceLock sync.Mutex
 	Resources    map[string]jsonutils.JSONObject
 
@@ -382,6 +383,7 @@ func (self *SResources) Init(ctx context.Context, userCred mcclient.TokenCredent
 	if isStart {
 		err := func() error {
 			errs := []error{}
+			self.Cloudaccounts.init(ctx)
 			err := self.Cloudaccounts.init(ctx)
 			if err != nil {
 				errs = append(errs, errors.Wrapf(err, "Cloudaccount.init"))
