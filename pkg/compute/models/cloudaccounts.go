@@ -80,6 +80,56 @@ func init() {
 	proxy.RegisterReferrer(CloudaccountManager)
 }
 
+/**
+
+// TODO 云账号管理
+{
+	"access_url": "InternationalCloud",
+	"account": "LTAI5t9VeuD9j8AanzhtzppQ",
+	"account_id": "1423762516458388",
+	"auto_create_project": false,
+	"auto_create_project_for_provider": false,
+	"balance": 0,
+	"brand": "Aliyun",
+	"created_at": "2024-08-11T16:37:09.000000Z",
+	"currency": "CNY",
+	"deleted": false,
+	"description": "aliyun",
+	"domain_id": "97b86a00b9ee44658f040d165b5e2704",
+	"domain_src": "local",
+	"enable_project_sync": false,
+	"enable_resource_sync": true,
+	"enabled": true,
+	"error_count": 0,
+	"health_status": "normal",
+	"iam_login_url": "https://signin.aliyun.com/1423762516458388.onaliyun.com/login.htm",
+	"id": "a86035ee-52e0-4c2d-85e0-8db1e41f5018",
+	"is_emulated": false,
+	"is_on_premise": false,
+	"is_public": false,
+	"is_public_cloud": true,
+	"last_sync": "2024-08-11T16:51:35.000000Z",
+	"last_sync_end_at": "2024-08-11T17:16:15.000000Z",
+	"name": "zhihuima@aliyun.com",
+	"probe_at": "2024-08-13T10:15:59.000000Z",
+	"progress": 0,
+	"provider": "Aliyun",
+	"proxy_setting_id": "DIRECT",
+	"public_scope": "none",
+	"read_only": false,
+	"saml_auth": false,
+	"secret": "cz1AWD/AAHjZz2X/ez6mlBsjpXic0NrGiEto1myBtDSadkNQ2KnyAM0omVB9MA==",
+	"share_mode": "account_domain",
+	"status": "connected",
+	"sync_status": "idle",
+	"tenant_id": "1d8f98b76e4a4f358b6753788acd90cb",
+	"update_version": 148,
+	"updated_at": "2024-08-13T10:15:59.000000Z",
+	"version": "2014-05-26"
+}
+
+*/
+
 type SCloudaccount struct {
 	db.SEnabledStatusInfrasResourceBase
 

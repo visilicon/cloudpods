@@ -19,3 +19,13 @@ Q: influxdb -> promethus、VictoriaMetrics
 权限：
 AUTH_SUBJECT_TOKEN_HEADER：X-Subject-Token
 pkg/mcclient/input.go： SAuthenticationInputV3
+
+
+cloudmux/pkg/cloudprovider/multicloud
+OSS:
+pkg/cloudcommon/db/external.go
+yunion.io/x/cloudmux/pkg/cloudprovider/objectstore.go
+yunion.io/x/cloudmux/pkg/cloudprovider/resources.go region
+
+云账号
+pkg/compute/models/cloudaccounts.go

@@ -447,7 +447,7 @@ func AuthenticateV3(ctx context.Context, input mcclient.SAuthenticationInputV3) 
 			return nil, errors.Wrap(err, "authUserByTokenV3")
 		}
 	case api.AUTH_METHOD_AKSK:
-		// auth by aksk
+		// auth by akskl
 		user, input.Auth.Scope.Project.Id, akskInfo, err = authUserByAccessKeyV3(ctx, input)
 		if err != nil {
 			return nil, errors.Wrap(err, "authUserByAccessKeyV3")
