@@ -55,7 +55,7 @@ func (app *Application) InitHandlers() *Application {
 	// bind k8s resource handlers
 	app.K8sHandler = handler.NewK8sResourceHandler("/api/v1/_raw")
 
-	// bind restful resource handlers
+	// bind restful resource handlers TODO /api/v2
 	app.ResourceHandler = handler.NewResourceHandlers("/api").
 		AddGet(handler.FetchAuthToken).
 		AddPost(handler.FetchAuthToken).
@@ -63,10 +63,10 @@ func (app *Application) InitHandlers() *Application {
 		AddPatch(handler.FetchAuthToken).
 		AddDelete(handler.FetchAuthToken)
 
-	// bind csrf handler
+	// bind csrf handler TODO /api/v2/csrf
 	app.CSRFResourceHandler = handler.NewCSRFResourceHandler("/api")
 
-	// bind rpc handler
+	// bind rpc handler TODO /api/v2/rpc
 	app.RPCHandler = handler.NewRPCHandlers("/api").
 		AddGet(handler.FetchAuthToken).
 		AddPost(handler.FetchAuthToken)
@@ -77,6 +77,7 @@ func (app *Application) InitHandlers() *Application {
 		app.BackendServiceProxyHandler = handler.NewBackendServiceProxyHandler("/api/s/<service>")
 	}
 
+	// TODO prefix = "/api/saml/idp", service_type = "cloudid"
 	app.CloudIdSAMLHandler = handler.NewProxyHandlerWithService(cloudid.SAML_IDP_PREFIX, cloudid.SERVICE_TYPE)
 
 	return app

@@ -1769,27 +1769,3 @@ func (bucket *SBucket) OnMetadataUpdated(ctx context.Context, userCred mcclient.
 	}
 	syncVirtualResourceMetadata(ctx, userCred, bucket, iBucket, readOnly)
 }
-
-func (manager *SBucketManager) ListItemExportKeys(ctx context.Context,
-	q *sqlchemy.SQuery,
-	userCred mcclient.TokenCredential,
-	keys stringutils2.SSortedStrings,
-) (*sqlchemy.SQuery, error) {
-	q, err := manager.SSharableVirtualResourceBaseManager.ListItemExportKeys(ctx, q, userCred, keys)
-	if err != nil {
-		return nil, errors.Wrap(err, "SSharableVirtualResourceBaseManager.ListItemExportKeys")
-	}
-	if keys.ContainsAny(manager.SCloudregionResourceBaseManager.GetExportKeys()...) {
-		q, err = manager.SCloudregionResourceBaseManager.ListItemExportKeys(ctx, q, userCred, keys)
-		if err != nil {
-			return nil, errors.Wrap(err, "SCloudregionResourceBaseManager.ListItemExportKeys")
-		}
-	}
-	if keys.ContainsAny(manager.SManagedResourceBaseManager.GetExportKeys()...) {
-		q, err = manager.SManagedResourceBaseManager.ListItemExportKeys(ctx, q, userCred, keys)
-		if err != nil {
-			return nil, errors.Wrap(err, "SManagedResourceBaseManager.ListItemExportKeys")
-		}
-	}
-	return q, nil
-}

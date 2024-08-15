@@ -29,3 +29,309 @@ yunion.io/x/cloudmux/pkg/cloudprovider/resources.go region
 
 云账号
 pkg/compute/models/cloudaccounts.go
+
+task
+pkg/cloudcommon/db/taskman/coordinator.go
+
+domain-project-group-user
+权限+角色
+cloudprovider-cloudaccounts-ecs/net/disk/kafka/rds
+docs/swagger/swagger_compute.yaml
+L:51545, delete/get/put/balance op
+L:51119, /cloudaccounts get/post
+
+
+创建云账号
+https://cloud.yunion.cn/api/v2/cloudaccounts：云账号连通性测试
+POST
+{
+    "name": "zhihuima@aliyun.com",
+    "environment": "InternationalCloud",
+    "access_key_id": "LTAI5tCRyrDtefhwAjxSd7oo",
+    "access_key_secret": "rbeSHzijI6wRNGTUDiM9DVAPPYk1Am",
+    "isOpenBlockedResources": false,
+    "saml_auth": false,
+    "enable_auto_sync": false,
+    "read_only": false,
+    "enabled": true,
+    "provider": "Aliyun",
+    "tenant": "1d8f98b76e4a4f358b6753788acd90cb",
+    "dry_run": true
+}
+Response
+{
+    "access_url": "InternationalCloud",
+    "account": "LTAI5tCRyrDtefhwAjxSd7oo",
+    "account_id": "1423762516458388",
+    "auto_create_project": false,
+    "auto_create_project_for_provider": false,
+    "balance": 0,
+    "brand": "Aliyun",
+    "can_delete": false,
+    "can_update": true,
+    "cloud_env": "public",
+    "deleted": false,
+    "disk_count": 0,
+    "domain_id": "97b86a00b9ee44658f040d165b5e2704",
+    "domain_src": "local",
+    "eip_count": 0,
+    "enabled": true,
+    "enabled_provider_count": 0,
+    "error_count": 0,
+    "guest_count": 0,
+    "host_count": 0,
+    "is_emulated": false,
+    "is_on_premise": false,
+    "is_public": false,
+    "is_public_cloud": true,
+    "name": "zhihuima@aliyun.com",
+    "progress": 0,
+    "project": "enb5964",
+    "project_domain": "enb5964",
+    "provider": "Aliyun",
+    "provider_count": 0,
+    "proxy_setting": {
+        "deleted": false,
+        "id": "DIRECT",
+        "is_emulated": false,
+        "is_public": false,
+        "name": "DIRECT",
+        "update_version": 0
+    },
+    "proxy_setting_id": "DIRECT",
+    "public_scope": "none",
+    "read_only": false,
+    "routetable_count": 0,
+    "saml_auth": false,
+    "secret": "rbeSHzijI6wRNGTUDiM9DVAPPYk1Am",
+    "share_mode": "account_domain",
+    "storage_count": 0,
+    "storagecache_count": 0,
+    "sync_count": 0,
+    "sync_interval_seconds": 0,
+    "sync_stauts2": "idle",
+    "tenant": "enb5964",
+    "tenant_id": "1d8f98b76e4a4f358b6753788acd90cb",
+    "update_version": 0,
+    "vpc_count": 0
+}
+https://cloud.yunion.cn/api/v2/cloudaccounts：创建云账号管理
+POST
+{
+    "name": "zhihuima@aliyun.com",
+    "environment": "InternationalCloud",
+    "access_key_id": "LTAI5tCRyrDtefhwAjxSd7oo",
+    "access_key_secret": "rbeSHzijI6wRNGTUDiM9DVAPPYk1Am",
+    "isOpenBlockedResources": false,
+    "saml_auth": false,
+    "enable_auto_sync": false,
+    "read_only": false,
+    "sub_accounts": {
+        "accounts": [
+            {
+                "account": "LTAI5tCRyrDtefhwAjxSd7oo",
+                "health_status": "normal",
+                "id": "1423762516458388",
+                "name": "zhihuima@aliyun.com"
+            }
+        ],
+        "cloudregions": [
+            {
+                "id": "Aliyun/cn-beijing"
+            }
+        ]
+    },
+    "enabled": true,
+    "provider": "Aliyun",
+    "tenant": "1d8f98b76e4a4f358b6753788acd90cb"
+}
+Response：
+{
+    "access_url": "InternationalCloud",
+    "account": "LTAI5tCRyrDtefhwAjxSd7oo",
+    "account_id": "1423762516458388",
+    "auto_create_project": false,
+    "auto_create_project_for_provider": false,
+    "balance": 0,
+    "brand": "Aliyun",
+    "can_delete": false,
+    "can_update": true,
+    "cloud_env": "public",
+    "created_at": "2024-08-15T03:06:17.000000Z",
+    "deleted": false,
+    "disk_count": 0,
+    "domain_id": "97b86a00b9ee44658f040d165b5e2704",
+    "domain_src": "local",
+    "eip_count": 0,
+    "enable_project_sync": false,
+    "enable_resource_sync": true,
+    "enabled": true,
+    "enabled_provider_count": 0,
+    "error_count": 0,
+    "guest_count": 0,
+    "health_status": "normal",
+    "host_count": 0,
+    "id": "aec54e6f-41d2-4a02-8e24-dad4d18d8469",
+    "is_emulated": false,
+    "is_on_premise": false,
+    "is_public": false,
+    "is_public_cloud": true,
+    "name": "zhihuima@aliyun.com",
+    "progress": 100,
+    "project": "enb5964",
+    "project_domain": "enb5964",
+    "provider": "Aliyun",
+    "provider_count": 0,
+    "proxy_setting": {
+        "deleted": false,
+        "id": "DIRECT",
+        "is_emulated": false,
+        "is_public": false,
+        "name": "DIRECT",
+        "update_version": 0
+    },
+    "proxy_setting_id": "DIRECT",
+    "public_scope": "none",
+    "read_only": false,
+    "routetable_count": 0,
+    "saml_auth": false,
+    "secret": "+hBNUWBlqJwqaeheQtmNYvstCakTe0YSeZUPJ81DV4NYwEuoAlFdpBQ3PomCHA==",
+    "share_mode": "account_domain",
+    "status": "init",
+    "storage_count": 0,
+    "storagecache_count": 0,
+    "sub_accounts": {
+        "accounts": [
+            {
+                "account": "LTAI5tCRyrDtefhwAjxSd7oo",
+                "health_status": "normal",
+                "id": "1423762516458388",
+                "name": "zhihuima@aliyun.com"
+            }
+        ],
+        "cloudregions": [
+            {
+                "id": "Aliyun/cn-beijing"
+            }
+        ]
+    },
+    "sync_count": 0,
+    "sync_interval_seconds": 0,
+    "sync_status": "queued",
+    "sync_stauts2": "idle",
+    "tenant": "enb5964",
+    "tenant_id": "1d8f98b76e4a4f358b6753788acd90cb",
+    "update_version": 2,
+    "updated_at": "2024-08-15T03:06:17.000000Z",
+    "vpc_count": 0
+}
+https://cloud.yunion.cn/api/v1/parameters/LIST_CloudaccountList
+https://cloud.yunion.cn/api/v2/cloudaccounts?scope=domain&show_fail_reason=true&details=false&limit=20
+https://cloud.yunion.cn/api/v2/cloudaccounts?scope=domain&show_fail_reason=true&details=true&limit=20
+
+
+
+创建OSS数据资源：
+https://cloud.yunion.cn/api/v2/projects?scope=domain&limit=20
+https://cloud.yunion.cn/api/v2/projects?scope=domain&limit=20&filter=id.in%281d8f98b76e4a4f358b6753788acd90cb%29
+https://cloud.yunion.cn/api/v2/rpc/cloudregions/region-providers?usable=true&cloud_env=public&scope=domain&projecct_domain=97b86a00b9ee44658f040d165b5e2704
+https://cloud.yunion.cn/api/v1/projects/1d8f98b76e4a4f358b6753788acd90cb?project_domain=97b86a00b9ee44658f040d165b5e2704
+https://cloud.yunion.cn/api/v2/cloudregions?provider=Aliyun&capability=objectstore&scope=domain&cloud_env=public
+https://cloud.yunion.cn/api/v2/cloudproviders?limit=0&enabled=1&details=true&scope=domain&read_only=false&cloudregion=c9c95fc5-a51d-41ed-8d12-74e7942917c9
+https://cloud.yunion.cn/api/v2/cloudproviders?limit=0&enabled=1&details=true&scope=domain&read_only=false&cloudregion=7466d824-24ee-4e20-833c-d905873da365
+https://cloud.yunion.cn/api/v2/buckets
+POST
+{
+    "provider": "Aliyun",
+    "cloudregion": "7466d824-24ee-4e20-833c-d905873da365",
+    "name": "objs",
+    "description": "notation",
+    "cloudprovider": "8abe5cff-3bcd-43cd-86dd-b0ac84f7745c",
+    "__meta__": {
+        "user:biz": "obj",
+        "user:from": "cloud"
+    },
+    "project_domain": "97b86a00b9ee44658f040d165b5e2704",
+    "project_id": "1d8f98b76e4a4f358b6753788acd90cb"
+}
+Response
+{
+    "access_urls": [
+        {
+            "description": "s3gateway",
+            "primary": false,
+            "url": "https://10.168.26.231:30884/objs"
+        }
+    ],
+    "account": "zhihuima@aliyun.com",
+    "account_health_status": "normal",
+    "account_id": "a86035ee-52e0-4c2d-85e0-8db1e41f5018",
+    "account_read_only": false,
+    "account_status": "connected",
+    "brand": "Aliyun",
+    "can_delete": true,
+    "can_update": true,
+    "cloud_env": "public",
+    "cloudregion": "阿里云 华北2（北京）",
+    "cloudregion_id": "7466d824-24ee-4e20-833c-d905873da365",
+    "created_at": "2024-08-15T02:44:22.000000Z",
+    "deleted": false,
+    "description": "notation",
+    "domain_id": "97b86a00b9ee44658f040d165b5e2704",
+    "environment": "InternationalCloud",
+    "freezed": false,
+    "id": "1b1243a4-b94f-4839-8644-8715de16872c",
+    "imported_at": "2024-08-15T02:44:22.000000Z",
+    "is_emulated": false,
+    "is_public": false,
+    "is_system": false,
+    "manager": "zhihuima@aliyun.com",
+    "manager_domain": "enb5964",
+    "manager_domain_id": "97b86a00b9ee44658f040d165b5e2704",
+    "manager_id": "8abe5cff-3bcd-43cd-86dd-b0ac84f7745c",
+    "manager_project": "enb5964",
+    "manager_project_id": "1d8f98b76e4a4f358b6753788acd90cb",
+    "metadata": {
+        "user:biz": "obj",
+        "user:from": "cloud"
+    },
+    "name": "objs",
+    "object_cnt": 0,
+    "object_cnt_limit": 0,
+    "pending_deleted": false,
+    "progress": 0,
+    "project": "enb5964",
+    "project_domain": "enb5964",
+    "project_src": "local",
+    "provider": "Aliyun",
+    "public_scope": "none",
+    "public_src": "local",
+    "region": "阿里云 华北2（北京）",
+    "region_ext_id": "cn-beijing",
+    "region_external_id": "Aliyun/cn-beijing",
+    "region_id": "7466d824-24ee-4e20-833c-d905873da365",
+    "size_bytes": 0,
+    "size_bytes_limit": 0,
+    "source": "local",
+    "status": "start_create",
+    "tenant": "enb5964",
+    "tenant_id": "1d8f98b76e4a4f358b6753788acd90cb",
+    "update_version": 1,
+    "updated_at": "2024-08-15T02:44:22.000000Z"
+}
+
+https://cloud.yunion.cn/api/v1/parameters/LIST_BucketList
+https://cloud.yunion.cn/api/v2/buckets?scope=domain&show_fail_reason=true&details=false&limit=20
+https://cloud.yunion.cn/api/v2/buckets?scope=domain&show_fail_reason=true&details=true&limit=20
+https://cloud.yunion.cn/api/v2/buckets/statistics?scope=domain&show_fail_reason=true&details=true&limit=20
+https://cloud.yunion.cn/api/v2/buckets/e6c40da3-ade6-4fc5-882e-5d2b2cda6c5a?scope=domain&show_fail_reason=true&details=true
+
+
+想删除资源，需要先禁用disable
+https://cloud.yunion.cn/api/v2/cloudaccounts/enable?id=aec54e6f-41d2-4a02-8e24-dad4d18d8469
+https://cloud.yunion.cn/api/v2/cloudaccounts/disable?id=aec54e6f-41d2-4a02-8e24-dad4d18d8469
+https://cloud.yunion.cn/api/v2/cloudaccounts?id=aec54e6f-41d2-4a02-8e24-dad4d18d8469 DELETE
+https://cloud.yunion.cn/api/v2/cloudaccounts/aec54e6f-41d2-4a02-8e24-dad4d18d8469?scope=domain&show_fail_reason=true&details=true
+https://cloud.yunion.cn/api/v2/cloudaccounts/aec54e6f-41d2-4a02-8e24-dad4d18d8469?scope=domain&show_fail_reason=true&details=true
+https://cloud.yunion.cn/api/v2/cloudaccounts/aec54e6f-41d2-4a02-8e24-dad4d18d8469?scope=domain&show_fail_reason=true&details=true
+重复执行，直到找不到cloudaccounts数据为止，提示已经删除
