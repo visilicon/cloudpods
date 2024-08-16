@@ -47,8 +47,8 @@ POST
 {
     "name": "zhihuima@aliyun.com",
     "environment": "InternationalCloud",
-    "access_key_id": "LTAI5tCRyrDtefhwAjxSd7oo",
-    "access_key_secret": "rbeSHzijI6wRNGTUDiM9DVAPPYk1Am",
+    "access_key_id": "XXXXXX",
+    "access_key_secret": "YYYYYY",
     "isOpenBlockedResources": false,
     "saml_auth": false,
     "enable_auto_sync": false,
@@ -61,7 +61,7 @@ POST
 Response
 {
     "access_url": "InternationalCloud",
-    "account": "LTAI5tCRyrDtefhwAjxSd7oo",
+    "account": "XXXXXX",
     "account_id": "1423762516458388",
     "auto_create_project": false,
     "auto_create_project_for_provider": false,
@@ -103,7 +103,7 @@ Response
     "read_only": false,
     "routetable_count": 0,
     "saml_auth": false,
-    "secret": "rbeSHzijI6wRNGTUDiM9DVAPPYk1Am",
+    "secret": "YYYYYY",
     "share_mode": "account_domain",
     "storage_count": 0,
     "storagecache_count": 0,
@@ -120,8 +120,8 @@ POST
 {
     "name": "zhihuima@aliyun.com",
     "environment": "InternationalCloud",
-    "access_key_id": "LTAI5tCRyrDtefhwAjxSd7oo",
-    "access_key_secret": "rbeSHzijI6wRNGTUDiM9DVAPPYk1Am",
+    "access_key_id": "XXXXXX",
+    "access_key_secret": "YYYYYY",
     "isOpenBlockedResources": false,
     "saml_auth": false,
     "enable_auto_sync": false,
@@ -129,7 +129,7 @@ POST
     "sub_accounts": {
         "accounts": [
             {
-                "account": "LTAI5tCRyrDtefhwAjxSd7oo",
+                "account": "XXXXXX",
                 "health_status": "normal",
                 "id": "1423762516458388",
                 "name": "zhihuima@aliyun.com"
@@ -148,7 +148,7 @@ POST
 Response：
 {
     "access_url": "InternationalCloud",
-    "account": "LTAI5tCRyrDtefhwAjxSd7oo",
+    "account": "XXXXXX",
     "account_id": "1423762516458388",
     "auto_create_project": false,
     "auto_create_project_for_provider": false,
