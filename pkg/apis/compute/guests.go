@@ -282,9 +282,10 @@ type BackupInfo struct {
 }
 
 type PodContainerDesc struct {
-	Id    string `json:"id"`
-	Name  string `json:"name"`
-	Image string `json:"image"`
+	Id     string `json:"id"`
+	Name   string `json:"name"`
+	Image  string `json:"image"`
+	Status string `json:"status"`
 }
 
 type Floppy struct {
@@ -1043,6 +1044,10 @@ type ServerSnapshotAndCloneInput struct {
 
 	// ignore
 	InstanceSnapshotId string `json:"instance_snapshot_id"`
+
+	// Perfer clone destination host
+	// 指定期望的迁移目标宿主机
+	PreferHostId string `json:"prefer_host_id"`
 }
 
 type ServerInstanceSnapshot struct {
